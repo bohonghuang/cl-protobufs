@@ -11,12 +11,12 @@
 
 # Directory into which the Lisp protocol buffer plugin,
 # protoc-gen-cl-pb, will be installed.
-INSTALL_ROOT ?= /usr/local/bin
+INSTALL_ROOT ?= ~/.local/bin/
 
 # Directory where Google's protocol buffer compiler is installed. This
 # should be the same directory you gave as the --prefix option to
 # ./configure when installing protobuf.
-PROTOC_ROOT ?= /usr/local
+PROTOC_ROOT ?= /usr/
 PROTOC      ?= $(PROTOC_ROOT)/bin/protoc
 
 OFILES = enum.o field.o file.o generator.o literals.o message.o \
