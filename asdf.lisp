@@ -129,7 +129,9 @@ to PARENT-PATH."
                           search-path
                           (file-namestring output-file)
                           (directory-namestring output-file)
-                          source-file-argument)))
+                          (uiop:if-let ((root (find-if (lambda (path) (search "/./" (namestring path))) search-path)))
+                            (enough-namestring (truename source-file-argument) (truename root))
+                            source-file-argument))))
     (multiple-value-bind (output error-output status)
         (uiop:run-program command :output t :error-output :output :ignore-error-status t)
       (declare (ignore output error-output))
